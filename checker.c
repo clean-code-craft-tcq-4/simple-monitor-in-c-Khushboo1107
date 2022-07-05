@@ -3,7 +3,7 @@
 #include "checker.h"
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
- return (CheckTemp(float temperature) && CheckStateOfCharge(float soc) && CheckChargeRate(float chargeRate));
+ return (CheckTemp(temperature) && CheckStateOfCharge(soc) && CheckChargeRate(chargeRate));
 }
  
   int CheckTemp(float temperature){
