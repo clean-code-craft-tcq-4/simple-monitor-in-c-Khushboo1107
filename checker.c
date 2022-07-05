@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <assert.h>
+#include "checker.h"
+
+#define E_OK 1;
+#define E_NOT_OK 0;
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
  return (CheckTemp(float temperature) && CheckStateOfCharge(float soc) && CheckChargeRate(float chargeRate));
