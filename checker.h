@@ -1,7 +1,8 @@
-int batteryIsOk(float, float, float);
-int CheckTemp(float);
-int CheckStateOfCharge(float);
-int CheckChargeRate(float);
 
-#define E_OK 1;
-#define E_NOT_OK 0;
+#define E_OK 1
+#define E_NOT_OK 0
+
+int CheckTemp(float temperature);
+int CheckStateOfCharge(float soc);
+int CheckChargeRate(float chargeRate);
+
