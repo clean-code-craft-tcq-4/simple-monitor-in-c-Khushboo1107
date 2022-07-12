@@ -2,39 +2,41 @@
 #include <assert.h>
 #include "checker.h"
 
-int batteryIsOk(float temperature, float soc, float chargeRate) {
- return (CheckTemp(temperature) && CheckStateOfCharge(soc) && CheckChargeRate(chargeRate));
+int ClassifyRange(float CurrentValue, int MinRange, int MaxRange)
+ {
+	   int result = E_OK;
+  if(CurrentValue < MinRange || CurrentValue > MaxRange) 
+	{
+    result =  E_NOT_OK;
+	}
+  return result;
 }
+
+
  
-  int CheckTemp(float temperature){
-    int result = E_OK;
-  if(temperature < 0 || temperature > 45) {
-    printf("Temperature out of range!\n");
-   result =  E_NOT_OK;
+int ClassifyTemperature(float temperature)
+{    
+return ClassifyRange(float temp, 0,45);
 }
-return result;
+
+int CheckStateOfCharge(float soc)
+{    
+return ClassifyRange(float temp, 20,80);
+}
+
+ int CheckChargeRate(float chargeRate)
+ {    
+return ClassifyRange(float temp, 0,0.8);
 }
   
-  int CheckStateOfCharge(float soc){
-   int result = E_OK;
-  if(soc < 20 || soc > 80) {
-    printf("State of Charge out of range!\n");
-   int result =  E_NOT_OK;
+int batteryIsOk(float temperature, float soc, float chargeRate) 
+{
+ return (ClassifyTemperature(temperature) && CheckStateOfCharge(soc) && CheckChargeRate(chargeRate));
 }
-return result;
-   }
-
-  int CheckChargeRate(float chargeRate){
-   int result = E_OK;
-   if(chargeRate > 0.8) {
-    printf("Charge Rate out of range!\n");
-  int result =  E_NOT_OK;
-}
-return result;
  
-}
 
-int main() {
+int main() 
+{
   assert(batteryIsOk(25, 70, 0.7));
   assert(!batteryIsOk(50, 85, 0));
 }
