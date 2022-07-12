@@ -16,17 +16,17 @@ int ClassifyRange(float CurrentValue, int MinRange, int MaxRange)
  
 int ClassifyTemperature(float temperature)
 {    
-return ClassifyRange(float temp, 0,45);
+return ClassifyRange(float temperature, 0,45);
 }
 
 int CheckStateOfCharge(float soc)
 {    
-return ClassifyRange(float temp, 20,80);
+return ClassifyRange(float soc, 20,80);
 }
 
  int CheckChargeRate(float chargeRate)
  {    
-return ClassifyRange(float temp, 0,0.8);
+return ClassifyRange(float chargeRate, 0,0.8);
 }
   
 int batteryIsOk(float temperature, float soc, float chargeRate) 
